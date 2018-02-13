@@ -17,7 +17,8 @@
     "test": "__tests__"
   },
   "scripts": {
-    "test": "jest",
+    "test": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest",
+    "testDev": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest --watch",
     "build": "webpack"
   },
   "repository": {

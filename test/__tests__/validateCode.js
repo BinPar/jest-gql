@@ -1,8 +1,8 @@
 import { gql } from 'react-apollo';
-import runGQLTest from '../lib/gqlTest';
+import runGQLTest from '../../lib/gqlTest';
 import allWorks from './allWorks';
 
-export default runGQLTest({
+const test = {
   previous: [allWorks],
   name: 'Validate senseless code',
   gql: gql`
@@ -15,4 +15,8 @@ export default runGQLTest({
   vars: data => ({ longCode: data.workId, lang: 'es' }),
   result: data => ({ available: data.validateCode.available }),
   test: data => !data.available,
-});
+  repeat: 2,
+};
+
+runGQLTest(test);
+export default test;

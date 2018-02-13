@@ -1,7 +1,7 @@
 import { gql } from 'react-apollo';
-import runGQLTest from '../lib/gqlTest';
+import runGQLTest from '../../lib/gqlTest';
 
-export default runGQLTest({
+const test = {
   name: 'Get Works List',
   gql: gql`
       query ($catalogPrefix: String!){
@@ -14,5 +14,7 @@ export default runGQLTest({
   vars: () => ({ catalogPrefix: 'AM18' }),
   result: data => ({ workId: data.getWorks[0].id }),
   test: data => !!data.workId,
-  repeat: 5,
-});
+};
+
+runGQLTest(test);
+export default test;
