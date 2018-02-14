@@ -1,5 +1,4 @@
 import { gql } from 'react-apollo';
-import runGQLTest from '../lib/gqlTest';
 
 const test = {
   name: 'Login Test',
@@ -16,5 +15,4 @@ const test = {
   test: data => !data.error,
 };
 
-runGQLTest(test);
 export default test;
