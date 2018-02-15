@@ -5,6 +5,8 @@
 - [How to use](#how-to-use)
   - [Setup](#setup)
   - [Creating the tests](#creating-the-tests)
+  - [Composed test example](#composed-test-example)
+  - [Oauth token authentication](#oauth-token-authentication)
   - [Remarks](#remarks)
   - [Executing the tests](#executing-the-tests)
 
@@ -135,9 +137,15 @@ URL of the GraphQL end point.
 #### repeat
 The number of times that we want the test to be runned
 
+### Composed test example
+
+### Oauth token authentication
+
 ### Remarks
 
-All the tests will run 
+All the tests stored in ```__tests__``` will run in parallel, but the execution plan of one test (resulting of the recursive evaluation of the **previous** property will be executed in serial).
+
+Every test will use an unique ApolloClient and NetworkInterface during the execution.
 
 ### Executing the tests
 
