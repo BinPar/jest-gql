@@ -1,5 +1,5 @@
 import { gql } from 'react-apollo';
-import runGQLTest from '../../lib/gqlTest';
+import runGQLTest from '../../src/gqlTest';
 import allWorks from './allWorks';
 
 const test = {
