@@ -43,7 +43,7 @@ const config = {
     ],
   },
   resolve: {
-    modules: [path.resolve('./node_modules'), path.resolve('./src')],
+    modules: [path.resolve(__dirname, './node_modules'), path.resolve(__dirname, './src')],
     extensions: ['.json', '.js'],
   },
   plugins,
