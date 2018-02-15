@@ -1,2 +1,5 @@
 test
 src
+.babelrc
+.eslintrc
+.webpack.config.js
