@@ -1,6 +1,6 @@
 {
   "name": "@binpar/jest-gql",
-  "version": "1.1.13",
+  "version": "1.1.12",
   "description": "GraphQL based tests for Jest",
   "keywords": [
     "Jest",
@@ -22,7 +22,7 @@
     "test": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest",
     "testDev": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest --watch",
     "build": "webpack --env dev && webpack --env build && npm run test",
-    "npmPublish": "webpack; npm publish --access public; npm version patch;"
+    "npmPublish": "webpack; npm version patch; npm publish --access public"
   },
   "repository": {
     "type": "git",
