@@ -3,3 +3,5 @@ src
 .babelrc
 .eslintrc
 webpack.config.js
+/lib/@binpar/jest-gql.js
+/lib/@binpar/jest-gql.js.map
