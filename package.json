@@ -13,7 +13,7 @@
   "engines": {
     "node": ">= 6.0"
   },
-  "main": "./dist/gqlTest.min",
+  "main": "./lib/@binpar/jest-gql.min",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -21,7 +21,7 @@
   "scripts": {
     "test": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest",
     "testDev": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest --watch",
-    "build": "webpack",
+    "build": "webpack --env dev && webpack --env build && npm run test",
     "npmPublish": "webpack; npm version patch; npm publish --access public"
   },
   "repository": {
@@ -37,7 +37,10 @@
   "dependencies": {
     "apollo-client": "^2.2.3",
     "graphql-tag": "^2.7.3",
-    "process-env": "^1.1.0"
+    "process-env": "^1.1.0",
+    "react": "^16.0.0",
+    "react-apollo": "^1.4.16",
+    "react-dom": "^16.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
