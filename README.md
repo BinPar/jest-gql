@@ -14,7 +14,7 @@
 ### Setup
 
 ```bash
-npm install --save-dev @binpar/jest-gql react react-apollo react-dom graphql-tag jest
+npm install --save-dev @binpar/jest-gql react react-apollo react-dom graphql-tag jest apollo-client
 ```
 
 If you have need to setup babel and eslint we recommend to add this packages too (otherwise jump to [executing the tests](#executing-the-tests):
