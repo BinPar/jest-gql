@@ -49,7 +49,7 @@ const config = {
   externals: [
     {
       ApolloClient: {
-        root: 'ApolloClient',
+        root: 'react-apollo',
       },
     },
   ],
