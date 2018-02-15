@@ -48,8 +48,12 @@ const config = {
   },
   externals: [
     {
-      ApolloClient: {
+      'react-apollo': {
         root: 'react-apollo',
+        commonjs2: 'react-apollo',
+        commonjs: 'react-apollo',
+        amd: 'react-apollo',
+        umd: 'react-apollo',
       },
     },
   ],
