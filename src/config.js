@@ -1,3 +1,5 @@
+import env from 'process-env'
+
 export default {
-  endPoint: process.env.GQL_API_URL,
+  endPoint: env.get('GQL_API_URL'),
 };

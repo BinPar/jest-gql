@@ -36,7 +36,8 @@
   "homepage": "https://github.com/BinPar/jest-gql#readme",
   "dependencies": {
     "apollo-client": "^2.2.3",
-    "graphql-tag": "^2.7.3"
+    "graphql-tag": "^2.7.3",
+    "process-env": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
