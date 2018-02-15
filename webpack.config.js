@@ -46,6 +46,13 @@ const config = {
     modules: [path.resolve(__dirname, './node_modules'), path.resolve(__dirname, './src')],
     extensions: ['.json', '.js'],
   },
+  externals: [
+    {
+      ApolloClient: {
+        root: 'ApolloClient',
+      },
+    },
+  ],
   plugins,
 };
 
