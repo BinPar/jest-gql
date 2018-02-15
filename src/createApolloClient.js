@@ -1,6 +1,5 @@
 import { ApolloClient, createNetworkInterface } from 'react-apollo';
 import fetch from 'isomorphic-fetch';
-import config from './config';
 
 if (!process.browser) {
   global.fetch = fetch;
@@ -8,7 +7,7 @@ if (!process.browser) {
 
 function create(data) {
   const networkInterface = createNetworkInterface({
-    uri: config.endPoint,
+    uri: process.env.GQL_API_URL,
   });
   const middleWares = [
     {
@@ -25,7 +24,7 @@ function create(data) {
     },
   ];
   networkInterface.use(middleWares);
-  const severNetworkInterface = createNetworkInterface({ uri: config.endPoint });
+  const severNetworkInterface = createNetworkInterface({ uri: process.env.GQL_API_URL });
   severNetworkInterface.use(middleWares);
   return new ApolloClient({
     ssrMode: true,
