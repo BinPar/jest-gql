@@ -22,7 +22,7 @@
     "test": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest",
     "testDev": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest --watch",
     "build": "webpack",
-    "publish": "webpack; npm version patch; npm publish --access public"
+    "npmPublish": "webpack; npm version patch; npm publish --access public"
   },
   "repository": {
     "type": "git",
