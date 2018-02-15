@@ -87,7 +87,7 @@ On the ```test``` folder we will place the tests that are going to be required a
 As an example, by adding a file called ```allWorks.js``` to the tests ```__tests__``` folder we will setup a test:
 
 ```javascript
-import { gql } from 'react-apollo';
+import gql from 'graphql-tag';
 import runGQLTest from '@binpar/jest-gql';
 
 const test = {
@@ -133,7 +133,7 @@ The properties of the tests are:
 
 ```test/login.js```:
 ```javascript
-import { gql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 const test = {
   name: 'Login Test',
@@ -155,7 +155,7 @@ export default test;
 
 ```test/__tests__/me.js```:
 ```javascript
-import { gql } from 'react-apollo';
+import gql from 'graphql-tag';
 import runGQLTest from '@binpar/jest-gql';
 import login from '../login';
 
