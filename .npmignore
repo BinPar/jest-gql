@@ -2,4 +2,4 @@ test
 src
 .babelrc
 .eslintrc
-.webpack.config.js
+webpack.config.js
