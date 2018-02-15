@@ -54,6 +54,7 @@ const runGQLTest = async (testToRun) => {
         default:
           throw Error(`Unknown GQL operation ${definition.operation}.`);
       }
+
       if (executionPlan.length) await executeGQLCommand(executionPlan);
     };
 
@@ -75,6 +76,7 @@ const runGQLTest = async (testToRun) => {
         await executeGQLCommand(executionPlan);
       });
     };
+    data.endPoint = testToRun.endPoint;
     if (testToRun.repeat) {
       await Promise.all(
         new Array(testToRun.repeat).fill(0).map((_, i) => executeTest(testToRun, i + 1)),

@@ -7,7 +7,7 @@ if (!process.browser) {
 
 function create(data) {
   const networkInterface = createNetworkInterface({
-    uri: process.env.GQL_API_URL,
+    uri: data.endPoint,
   });
   const middleWares = [
     {
@@ -24,7 +24,7 @@ function create(data) {
     },
   ];
   networkInterface.use(middleWares);
-  const severNetworkInterface = createNetworkInterface({ uri: process.env.GQL_API_URL });
+  const severNetworkInterface = createNetworkInterface({ uri: data.endPoint });
   severNetworkInterface.use(middleWares);
   return new ApolloClient({
     ssrMode: true,

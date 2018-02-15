@@ -14,6 +14,7 @@ const test = {
   vars: () => ({ catalogPrefix: 'AM18' }),
   result: data => ({ workId: data.getWorks[0].id }),
   test: data => !!data.workId,
+  endPoint: process.env.GQL_API_URL,
 };
 
 runGQLTest(test);

@@ -16,6 +16,7 @@ const test = {
   `,
   result: data => ({ userEmail: data.me.email }),
   test: data => data.userEmail === 'voceses@email.com',
+  endPoint: process.env.GQL_API_URL,
 };
 runGQLTest(test);
 export default test;

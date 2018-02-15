@@ -16,6 +16,7 @@ const test = {
   result: data => ({ available: data.validateCode.available }),
   test: data => !data.available,
   repeat: 2,
+  endPoint: process.env.GQL_API_URL,
 };
 
 runGQLTest(test);
