@@ -156,6 +156,7 @@ export default test;
 ```test/__tests__/me.js```:
 ```javascript
 import { gql } from 'react-apollo';
+import runGQLTest from '@binpar/jest-gql';
 import login from '../login';
 
 const test = {
@@ -172,8 +173,9 @@ const test = {
   `,
   result: data => ({ userEmail: data.me.email }),
   test: data => data.userEmail === 'voceses@email.com',
+  endPoint: process.env.GQL_API_URL,
 };
-
+runGQLTest(test);
 export default test;
 ```
 
