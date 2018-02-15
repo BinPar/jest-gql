@@ -139,7 +139,59 @@ The number of times that we want the test to be runned
 
 ### Composed test example
 
+```test/login.js```:
+```javascript
+import { gql } from 'react-apollo';
+
+const test = {
+  name: 'Login Test',
+  gql: gql`
+    mutation($email: String!, $password: String!) {
+      login(email: $email, password: $password) {
+        error
+        token
+      }
+    }
+  `,
+  vars: () => ({ email: 'voceses@email.com', password: 'voceses' }),
+  result: data => ({ error: data.login.error, oAuthToken: data.login.token }),
+  test: data => !data.error,
+};
+
+export default test;
+```
+
+```test/__tests__/me.js```:
+```javascript
+import { gql } from 'react-apollo';
+import login from '../login';
+
+const test = {
+  previous: [login],
+  name: 'Query authenticated user data',
+  gql: gql`
+    query {
+      me {
+        id
+        name
+        email
+      }
+    }
+  `,
+  result: data => ({ userEmail: data.me.email }),
+  test: data => data.userEmail === 'voceses@email.com',
+};
+
+export default test;
+```
+
+Notice that the test that will run is ```me.js```, but it will execute ```login.js``` as a pre-requisite that will be shared by many tests.
+
 ### Oauth token authentication
+
+In the previous example, in the ```login.js``` the token returned by the query is stored in the data in the **oAuthToken** property.
+
+This is a special property that will be used for the subsequent requests of this test in order to authenticate the user using **Oauth token authentication**.
 
 ### Remarks
 
