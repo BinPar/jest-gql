@@ -76,7 +76,7 @@ const runGQLTest = async (testToRun) => {
         await executeGQLCommand(executionPlan);
       });
     };
-    data.endPoint = testToRun.endPoint;
+    data.endPoint = testToRun.endPoint || process.env.GQL_API_URL;
     if (testToRun.repeat) {
       await Promise.all(
         new Array(testToRun.repeat).fill(0).map((_, i) => executeTest(testToRun, i + 1)),
