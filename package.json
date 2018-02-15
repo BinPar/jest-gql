@@ -6,6 +6,8 @@
     "Jest",
     "GraphQL",
     "GQL",
+    "Test",
+    "Apollo",
     "BinPar"
   ],
   "engines": {
@@ -13,7 +15,7 @@
   },
   "main": "./lib/jest-gql",
   "directories": {
-    "lib": "lib",
+    "lib": "src",
     "test": "__tests__"
   },
   "scripts": {
