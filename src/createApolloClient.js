@@ -1,9 +1,4 @@
 import { ApolloClient, createNetworkInterface } from 'react-apollo';
-import fetch from 'isomorphic-fetch';
-
-if (!process.browser) {
-  global.fetch = fetch;
-}
 
 function create(data) {
   const networkInterface = createNetworkInterface({
@@ -14,10 +9,8 @@ function create(data) {
       applyMiddleware(req, next) {
         const token = data.oAuthToken;
         if (token) {
-          if (!req.options.headers) {
-            req.options.headers = {};
-          }
-          req.options.headers.authorization = token ? `Bearer ${token}` : null;
+          req.options.headers = {};
+          req.options.headers.authorization = `Bearer ${token}`;
         }
         next();
       },

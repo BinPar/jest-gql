@@ -8,9 +8,7 @@ const runGQLTest = async (testToRun) => {
     const executeGQLCommand = async (executionPlan) => {
       const apolloClient = createApolloClient(data);
       const testInfo = executionPlan.pop();
-      if (!testInfo.gql) {
-        throw Error('No GQL operation provided to the runGQLTest.');
-      }
+
       if (testInfo.gql.definitions.length !== 1) {
         throw Error('Only one GQL operation is allowed in a runGQLTest.');
       }
@@ -27,11 +25,7 @@ const runGQLTest = async (testToRun) => {
           if (testInfo.result) {
             data = { ...data, ...(await testInfo.result(result.data)) };
           }
-          if (testInfo.test) {
-            expect(testInfo.test(data)).toBe(true);
-          } else {
-            throw Error('On test defined for the runGQLTest.');
-          }
+          expect(testInfo.test(data)).toBe(true);
           break;
         }
         case 'query': {
@@ -44,11 +38,7 @@ const runGQLTest = async (testToRun) => {
           if (testInfo.result) {
             data = { ...data, ...(await testInfo.result(result.data)) };
           }
-          if (testInfo.test) {
-            expect(testInfo.test(data)).toBe(true);
-          } else {
-            throw Error('On test defined for the runGQLTest.');
-          }
+          expect(testInfo.test(data)).toBe(true);
           break;
         }
         default:
@@ -76,7 +66,7 @@ const runGQLTest = async (testToRun) => {
         await executeGQLCommand(executionPlan);
       });
     };
-    data.endPoint = testToRun.endPoint || process.env.GQL_API_URL;
+    data.endPoint = testToRun.endPoint;
     if (testToRun.repeat) {
       await Promise.all(
         new Array(testToRun.repeat).fill(0).map((_, i) => executeTest(testToRun, i + 1)),
