@@ -21,6 +21,8 @@
   "scripts": {
     "test": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest",
     "testDev": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest --watch",
+    "testCoverage": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest --coverage",
+    "testCI": "npm run testCoverage && cat coverage/lcov.info | coveralls",
     "build": "webpack --env dev && webpack --env build && npm run test",
     "npmPublish": "webpack --env dev && webpack --env build && npm run test; npm version patch; npm publish --access public"
   },
@@ -52,6 +54,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
+    "coveralls": "^3.0.0",
     "eslint": "^4.5.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-import-resolver-meteor": "^0.4.0",
