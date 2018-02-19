@@ -1,4 +1,4 @@
-# GraphQL based tests for Jest
+# GraphQL based tests for Jest [![Coverage Status](https://coveralls.io/repos/github/BinPar/jest-gql/badge.svg?branch=master)](https://coveralls.io/github/BinPar/jest-gql?branch=master)
 
 **jest-gql** is a minimalistic framework for GraphQL tests using jest and Apollo Client
 
