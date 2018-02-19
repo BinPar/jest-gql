@@ -8,9 +8,7 @@ const runGQLTest = async (testToRun) => {
     const executeGQLCommand = async (executionPlan) => {
       const apolloClient = createApolloClient(data);
       const testInfo = executionPlan.pop();
-      if (!testInfo.gql) {
-        throw Error('No GQL operation provided to the runGQLTest.');
-      }
+
       if (testInfo.gql.definitions.length !== 1) {
         throw Error('Only one GQL operation is allowed in a runGQLTest.');
       }
