@@ -17,6 +17,8 @@
 npm install --save-dev @binpar/jest-gql react react-apollo react-dom graphql-tag jest apollo-client
 ```
 
+> If you are using ```"jest": "^21.2.1"``` please update to ```"jest": "^22.2.2"``` an error with the 21.1.1 version in the async test system makes it incompatible with **jest-gql**.
+
 If you have need to setup babel and eslint we recommend to add this packages too (otherwise jump to [executing the tests](#executing-the-tests):
 
 ```bash
