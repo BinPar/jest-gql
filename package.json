@@ -18,12 +18,21 @@
     "lib": "src",
     "test": "__tests__"
   },
+  "jest": {
+    "collectCoverage": true,
+    "mapCoverage": true,
+    "coverageDirectory": ".coverage"
+  },
   "scripts": {
     "test": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest",
     "testDev": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest --watch",
     "testCoverage": "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest --coverage",
-    "testCI": "npm run testCoverage && cat coverage/lcov.info | coveralls",
+    "testCI": "npm run testCoverage && cat .coverage/lcov.info | coveralls",
     "build": "webpack --env dev && webpack --env build && npm run test",
+    "openTestCoverageReport":
+      "GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest --coverage; open ./.coverage/lcov-report/index.html",
+    "openTestCoverageReportDev":
+      "open ./.coverage/lcov-report/index.html;GQL_API_URL='https://api.artmadrid.market.binpar.com/graphql' jest --watch --coverage",
     "npmPublish": "webpack --env dev && webpack --env build && npm run test; npm version patch; npm publish --access public"
   },
   "repository": {
