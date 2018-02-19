@@ -27,11 +27,7 @@ const runGQLTest = async (testToRun) => {
           if (testInfo.result) {
             data = { ...data, ...(await testInfo.result(result.data)) };
           }
-          if (testInfo.test) {
-            expect(testInfo.test(data)).toBe(true);
-          } else {
-            throw Error('On test defined for the runGQLTest.');
-          }
+          expect(testInfo.test(data)).toBe(true);
           break;
         }
         case 'query': {
@@ -44,11 +40,7 @@ const runGQLTest = async (testToRun) => {
           if (testInfo.result) {
             data = { ...data, ...(await testInfo.result(result.data)) };
           }
-          if (testInfo.test) {
-            expect(testInfo.test(data)).toBe(true);
-          } else {
-            throw Error('On test defined for the runGQLTest.');
-          }
+          expect(testInfo.test(data)).toBe(true);
           break;
         }
         default:

@@ -1,9 +1,4 @@
 import { ApolloClient, createNetworkInterface } from 'react-apollo';
-import fetch from 'isomorphic-fetch';
-
-if (!process.browser) {
-  global.fetch = fetch;
-}
 
 function create(data) {
   const networkInterface = createNetworkInterface({
