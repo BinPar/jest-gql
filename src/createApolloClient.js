@@ -1,6 +1,6 @@
 import { ApolloClient, createNetworkInterface } from 'react-apollo';
 
-function creaste(data) {
+function create(data) {
   const networkInterface = createNetworkInterface({
     uri: data.endPoint,
   });
