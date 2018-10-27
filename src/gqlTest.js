@@ -25,7 +25,7 @@ const runGQLTest = async (testToRun) => {
           if (testInfo.result) {
             data = { ...data, ...(await testInfo.result(result.data)) };
           }
-          expect(testInfo.test(data)).toBe(true);
+          expect(testInfo.test(data, params.variables)).toBe(true);
           break;
         }
         case 'query': {
@@ -38,7 +38,7 @@ const runGQLTest = async (testToRun) => {
           if (testInfo.result) {
             data = { ...data, ...(await testInfo.result(result.data)) };
           }
-          expect(testInfo.test(data)).toBe(true);
+          expect(testInfo.test(data, params.variables)).toBe(true);
           break;
         }
         default:
