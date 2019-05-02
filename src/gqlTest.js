@@ -3,8 +3,8 @@ import createApolloClient from './createApolloClient';
 const { describe, test, expect } = global;
 
 const runGQLTest = async (testToRun) => {
-  describe('GraphQL Tests', async () => {
-    let data = {};
+  let data = {};
+  describe('GraphQL Tests', () => {
     const executeGQLCommand = async (executionPlan) => {
       const apolloClient = createApolloClient(data);
       const testInfo = executionPlan.pop();
@@ -66,15 +66,22 @@ const runGQLTest = async (testToRun) => {
         await executeGQLCommand(executionPlan);
       });
     };
-    data.endPoint = testToRun.endPoint;
-    if (testToRun.repeat) {
-      await Promise.all(
-        new Array(testToRun.repeat).fill(0).map((_, i) => executeTest(testToRun, i + 1)),
-      );
-    } else {
-      await executeTest(testToRun);
-    }
-    return data;
+
+    const init = async () => {
+      data.endPoint = testToRun.endPoint;
+
+      if (testToRun.repeat) {
+        await Promise.all(
+          new Array(testToRun.repeat).fill(0).map((_, i) => executeTest(testToRun, i + 1)),
+        );
+      } else {
+        await executeTest(testToRun);
+      }
+    };
+
+    init();
   });
+
+  return data;
 };
 export default runGQLTest;
